@@ -1,0 +1,11 @@
+start = Welcome to Bot Assistant! To apply for humanitarian aid, click or type /form.
+language = Select a language by clicking on the button.
+langAlreadySet = Language already selected!
+langSet = Selected language
+helpTitle = List of available commands
+helpStart = Start again
+helpLanguage = Change language
+helpForm = Application for humanitarian aid
+assistance = To apply for humanitarian assistance, click on the button below
+btnAssistance = Fill out form
+btnHelp = Help
