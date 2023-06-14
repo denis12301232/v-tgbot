@@ -12,6 +12,7 @@ const botWebhookPlugin: FastifyPluginCallback<Opts> = async (app, { endpoint }, 
     .then(() => app.log.info('Bot webhook was set'))
     .catch((e: Error) => {
       app.log.error(e);
+      app.close();
     });
   done();
 };
