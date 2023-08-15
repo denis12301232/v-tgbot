@@ -1,9 +1,13 @@
-import type { FastifyPluginCallback } from 'fastify';
+import type { FastifyPluginCallback, onCloseHookHandler } from 'fastify';
 import { webhookCallback } from 'grammy';
 
 interface Opts {
   endpoint: string;
 }
+
+const onClose: onCloseHookHandler = (app) => {
+  app.bot.api.deleteWebhook();
+};
 
 const botWebhookPlugin: FastifyPluginCallback<Opts> = async (app, { endpoint }, done) => {
   app.post(endpoint, webhookCallback(app.bot, 'fastify'));
@@ -14,6 +18,7 @@ const botWebhookPlugin: FastifyPluginCallback<Opts> = async (app, { endpoint }, 
       app.log.error(e);
       app.close();
     });
+  app.addHook('onClose', onClose);
   done();
 };
 
