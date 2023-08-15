@@ -11,7 +11,9 @@ export async function factory(app: FastifyInstance) {
     dotenv: { path: `.env`, debug: true },
   });
   app.register(Plugins.botInit);
-  app.register(Plugins.botWebhook, { endpoint: '/bot' });
+  process.argv.includes('-w')
+    ? app.register(Plugins.botWebhook, { endpoint: '/bot' })
+    : app.register(Plugins.botPolling);
   app.register(botRoutes, { prefix: '/bot' });
   app.setValidatorCompiler(
     ({ schema }: { schema: ObjectSchema }) =>
