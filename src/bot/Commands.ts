@@ -23,6 +23,7 @@ export default class Commands {
       `/start - ${ctx.t('helpStart')}`,
       `/form - ${ctx.t('helpForm')}`,
       `/about - ${ctx.t('helpAbout')}`,
+      `/website - ${ctx.t('helpWebsite')}`,
       `/language - ${ctx.t('helpLanguage')}`,
     ];
 
@@ -43,11 +44,15 @@ export default class Commands {
 
   static form(ctx: CommandContext<MyContext>) {
     return ctx.reply(`${ctx.t('assistance')}:`, {
-      reply_markup: { inline_keyboard: Keyboards.form(ctx.t, process.env.SITE_URL).inline_keyboard },
+      reply_markup: { inline_keyboard: Keyboards.form(ctx.t, process.env.FORM_URL).inline_keyboard },
     });
   }
 
   static about(ctx: CommandContext<MyContext>) {
     return ctx.reply(ctx.t('about'));
+  }
+
+  static website(ctx: CommandContext<MyContext>) {
+    return ctx.reply(process.env.WEBSITE_URL);
   }
 }

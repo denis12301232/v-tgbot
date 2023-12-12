@@ -17,6 +17,7 @@ const botInitPlugin: FastifyPluginCallback = async (app, opts, done) => {
     { command: 'start', description: 'Start' },
     { command: 'form', description: 'Form' },
     { command: 'about', description: 'About' },
+    { command: 'website', description: 'Our website' },
     { command: 'language', description: 'Language' },
   ]);
   bot.use(
@@ -27,10 +28,11 @@ const botInitPlugin: FastifyPluginCallback = async (app, opts, done) => {
 
   bot.use(i18n);
   bot.command('start', Commands.start);
-  bot.command('language', Commands.language);
   bot.command('help', Commands.help);
   bot.command('form', Commands.form);
   bot.command('about', Commands.about);
+  bot.command('website', Commands.website);
+  bot.command('language', Commands.language);
   bot.hears('ru', Commands.setLang('ru'));
   bot.hears('uk', Commands.setLang('uk'));
   bot.hears('en', Commands.setLang('en'));

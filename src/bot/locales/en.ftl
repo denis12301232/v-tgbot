@@ -7,6 +7,7 @@ helpStart = Start again
 helpLanguage = Change language
 helpForm = Application for humanitarian aid
 helpAbout = About us
+helpWebsite = Our website
 assistance = To apply for humanitarian assistance, click on the button below
 btnAssistance = Fill out form
 btnHelp = Help

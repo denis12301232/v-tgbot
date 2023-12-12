@@ -4,6 +4,7 @@ declare namespace NodeJS {
     readonly HOST: string;
     readonly BOT_TOKEN: string;
     readonly DOMAIN: string;
-    readonly SITE_URL: string;
+    readonly WEBSITE_URL: string;
+    readonly FORM_URL: string;
   }
 }
