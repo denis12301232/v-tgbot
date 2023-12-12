@@ -23,6 +23,7 @@ export default class Commands {
       start: `/start - ${ctx.t('helpStart')}`,
       form: `/form - ${ctx.t('helpForm')}`,
       language: `/language - ${ctx.t('helpLanguage')}`,
+      about: `/about - ${ctx.t('helpAbout')}`,
     };
 
     return ctx.reply(Object.values(list).join('\n'), { parse_mode: 'HTML' });
@@ -44,5 +45,9 @@ export default class Commands {
     return ctx.reply(`${ctx.t('assistance')}:`, {
       reply_markup: { inline_keyboard: Keyboards.form(ctx.t, process.env.SITE_URL).inline_keyboard },
     });
+  }
+
+  static about(ctx: CommandContext<MyContext>) {
+    return ctx.reply(ctx.t('about'));
   }
 }

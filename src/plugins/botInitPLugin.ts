@@ -8,7 +8,7 @@ import { Commands } from '@/bot/index.js';
 const botInitPlugin: FastifyPluginCallback = async (app, opts, done) => {
   const bot = new Bot<MyContext>(process.env.BOT_TOKEN);
   const i18n = new I18n<MyContext>({
-    defaultLocale: 'ru',
+    defaultLocale: 'uk',
     directory: 'src/bot/locales',
     localeNegotiator: (ctx) => ctx.session.locale ?? ctx.from?.language_code ?? 'en',
   });
@@ -17,6 +17,7 @@ const botInitPlugin: FastifyPluginCallback = async (app, opts, done) => {
     { command: 'start', description: 'Start' },
     { command: 'form', description: 'Form' },
     { command: 'language', description: 'Language' },
+    { command: 'about', description: 'About' },
   ]);
   bot.use(
     session({
@@ -29,6 +30,7 @@ const botInitPlugin: FastifyPluginCallback = async (app, opts, done) => {
   bot.command('language', Commands.language);
   bot.command('help', Commands.help);
   bot.command('form', Commands.form);
+  bot.command('about', Commands.about);
   bot.hears('ru', Commands.setLang('ru'));
   bot.hears('uk', Commands.setLang('uk'));
   bot.hears('en', Commands.setLang('en'));
