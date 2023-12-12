@@ -16,8 +16,8 @@ const botInitPlugin: FastifyPluginCallback = async (app, opts, done) => {
     { command: 'help', description: 'Help' },
     { command: 'start', description: 'Start' },
     { command: 'form', description: 'Form' },
-    { command: 'language', description: 'Language' },
     { command: 'about', description: 'About' },
+    { command: 'language', description: 'Language' },
   ]);
   bot.use(
     session({

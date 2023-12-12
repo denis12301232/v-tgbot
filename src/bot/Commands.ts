@@ -18,15 +18,15 @@ export default class Commands {
   }
 
   static help(ctx: CommandContext<MyContext>) {
-    const list = {
-      title: `<b>${ctx.t('helpTitle')}:</b>\n`,
-      start: `/start - ${ctx.t('helpStart')}`,
-      form: `/form - ${ctx.t('helpForm')}`,
-      language: `/language - ${ctx.t('helpLanguage')}`,
-      about: `/about - ${ctx.t('helpAbout')}`,
-    };
+    const list = [
+      `<b>${ctx.t('helpTitle')}:</b>\n`,
+      `/start - ${ctx.t('helpStart')}`,
+      `/form - ${ctx.t('helpForm')}`,
+      `/about - ${ctx.t('helpAbout')}`,
+      `/language - ${ctx.t('helpLanguage')}`,
+    ];
 
-    return ctx.reply(Object.values(list).join('\n'), { parse_mode: 'HTML' });
+    return ctx.reply(list.join('\n'), { parse_mode: 'HTML' });
   }
 
   static setLang(lang: Langs) {
@@ -37,7 +37,7 @@ export default class Commands {
       }
       ctx.session.locale = lang;
       await ctx.i18n.renegotiateLocale();
-      return ctx.reply(ctx.t('langSet') + ': ' + lang.toUpperCase());
+      return ctx.reply(`${ctx.t('langSet')}: ${lang.toUpperCase()}`);
     };
   }
 
