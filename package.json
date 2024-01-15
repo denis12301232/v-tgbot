@@ -1,0 +1,36 @@
+{
+  "name": "volunteer68-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "imports": {
+    "#/*": "./src/*",
+    "#app/*": "./src/app/*",
+    "#controllers/*": "./src/app/controllers/*"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file=.env --import tsx src/main.ts",
+    "build": "node esbuild.config.js",
+    "start": "node --env-file=.env dist/main.js",
+    "format": "npx prettier --write src/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "esbuild": "^0.19.11",
+    "esbuild-plugin-copy": "^2.1.1",
+    "prettier": "^3.2.2",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@grammyjs/i18n": "^1.0.1",
+    "fastify": "^4.25.2",
+    "fastify-plugin": "^4.5.1",
+    "grammy": "^1.20.3",
+    "yup": "^1.3.3"
+  }
+}

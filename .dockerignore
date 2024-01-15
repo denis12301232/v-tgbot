@@ -1,0 +1,14 @@
+node_modules
+dockerfile
+docker-compose.yaml
+.git
+.env*
+README.md
+dist
+public
+static
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintrc
+.prettierrc
